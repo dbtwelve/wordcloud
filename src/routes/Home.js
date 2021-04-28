@@ -1,3 +1,4 @@
+import Post from "components/Post";
 import { dbService } from "fbase";
 import React, { useEffect, useState } from "react";
 
@@ -5,6 +6,7 @@ import React, { useEffect, useState } from "react";
 const Home = ({userObj}) => {
     const [upload, setUpload] =  useState("");
     const [postlist, setPostList] =  useState([]);
+    /*
     const getPostList = async() => {
         const dbPosts = await dbService.collection("posts").get();
         dbPosts.forEach((document) => {
@@ -16,11 +18,16 @@ const Home = ({userObj}) => {
             setPostList(prev => [postObject, ...prev]);
         })
         
-    }
+    }*/
     useEffect(() => {
-        getPostList();
+        //getPostList();
+        //실시간으로 화면에 나타내기 위해 snapshot 사용
         dbService.collection("posts").onSnapshot(snapshot => {
-            console.log("change")
+            const postArray = snapshot.docs.map(doc => ({
+                id:doc.id,
+                ...doc.data(),
+            }));
+            setPostList(postArray);
         });
     }, []);
     const onSubmit = async (event) => {
@@ -44,9 +51,7 @@ const Home = ({userObj}) => {
             </form>
             <div>
                 {postlist.map((list) => (
-                    <div key={list.id}>
-                        <h4>{list.text}</h4>
-                    </div>
+                    <Post key={list.id} postObj={list} isOwner={list.creatorId === userObj.uid}/>
                 ))}
             </div>
         </div>
