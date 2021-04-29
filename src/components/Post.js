@@ -1,4 +1,4 @@
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
 
 const Post = ({postObj, isOwner}) => {
@@ -8,6 +8,7 @@ const Post = ({postObj, isOwner}) => {
         const isDelete = window.confirm("Are you sure you want to delete this post?");
         if(isDelete){
             await dbService.doc(`posts/${postObj.id}`).delete();
+            await storageService.refFromURL(postObj.attachmentURL).delete();
         }
     };
     const toggleEditing = () => setEditing((prev) => !prev);
@@ -28,17 +29,26 @@ const Post = ({postObj, isOwner}) => {
         <div>
             {
                 
-                editing ? (
+                editing ? ( //Edit버튼을 눌렸을 경우
                     <>
-                    <form onSubmit={onSubmit}>
-                        <input type="text" placeholder="Edit your post" value={newPost} onChange={onChange} required/>
-                        <input type="submit" value="Update Post"/>
-                    </form>
-                    <button onClick={toggleEditing}>Cancel</button>
+                    {isOwner && (
+                        <>
+                        <form onSubmit={onSubmit}>
+                            <input type="text" placeholder="Edit your post" value={newPost} onChange={onChange} required/>
+                            <input type="submit" value="Update Post"/>
+                        </form>
+                        <button onClick={toggleEditing}>Cancel</button>
+                        </>
+                    )
+
+                    }
                     </>
                     ) : (
                     <>
                     <h4>{postObj.text}</h4>
+                    {postObj.attachmentURL && (
+                        <img src={postObj.attachmentURL} width="50px" height="50px"/>
+                    )}
                     {isOwner && (
                         <>
                         <button onClick={onDeleteClick}>Delete</button>
