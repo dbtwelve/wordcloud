@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/wordcloud/static/css/main.ee4f01fa.chunk.css",
+    "main.js": "/wordcloud/static/js/main.9a13add3.chunk.js",
+    "main.js.map": "/wordcloud/static/js/main.9a13add3.chunk.js.map",
+    "runtime-main.js": "/wordcloud/static/js/runtime-main.7283e6c5.js",
+    "runtime-main.js.map": "/wordcloud/static/js/runtime-main.7283e6c5.js.map",
+    "static/js/2.b44cae23.chunk.js": "/wordcloud/static/js/2.b44cae23.chunk.js",
+    "static/js/2.b44cae23.chunk.js.map": "/wordcloud/static/js/2.b44cae23.chunk.js.map",
+    "index.html": "/wordcloud/index.html",
+    "static/css/main.ee4f01fa.chunk.css.map": "/wordcloud/static/css/main.ee4f01fa.chunk.css.map",
+    "static/js/2.b44cae23.chunk.js.LICENSE.txt": "/wordcloud/static/js/2.b44cae23.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7283e6c5.js",
+    "static/js/2.b44cae23.chunk.js",
+    "static/css/main.ee4f01fa.chunk.css",
+    "static/js/main.9a13add3.chunk.js"
+  ]
+}
