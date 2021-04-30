@@ -25,19 +25,23 @@ const Home = ({userObj}) => {
     useEffect(() => {
         //getPostList();
         //실시간으로 화면에 나타내기 위해 snapshot 사용
+        const getData = 
         dbService.collection("posts").onSnapshot(snapshot => {
             const postArray = snapshot.docs.map(doc => ({
                 id:doc.id,
                 ...doc.data(),
             }));
+            console.log(postArray)
+        
             setPostList(postArray);
         });
+        return () => getData();
     }, []);
     
     return (
-        <div>
+        <div className="container">
             <PostFactory userObj={userObj}/>
-            <div>
+            <div style={{ marginTop: 30 }}>
                 {postlist.map((list) => (
                     <Post key={list.id} postObj={list} isOwner={list.creatorId === userObj.uid}/>
                 ))}

@@ -1,5 +1,7 @@
 import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Post = ({postObj, isOwner}) => {
     const [editing, setEditing] = useState(false);
@@ -26,18 +28,27 @@ const Post = ({postObj, isOwner}) => {
         setNewPost(value);
     }
     return (
-        <div>
+        <div className="post">
             {
                 
                 editing ? ( //Edit버튼을 눌렸을 경우
                     <>
                     {isOwner && (
                         <>
-                        <form onSubmit={onSubmit}>
-                            <input type="text" placeholder="Edit your post" value={newPost} onChange={onChange} required/>
-                            <input type="submit" value="Update Post"/>
+                        <form onSubmit={onSubmit} className="container postEdit">
+                            <input 
+                                type="text" 
+                                placeholder="Edit your post" 
+                                value={newPost} 
+                                onChange={onChange} 
+                                required 
+                                autoFocus 
+                                className="formInput"/>
+                            <input type="submit" value="Update Post" className="formBtn"/>
                         </form>
-                        <button onClick={toggleEditing}>Cancel</button>
+                        <span onClick={toggleEditing} className="formBtn cancelBtn">
+                            Cancel
+                        </span>
                         </>
                     )
 
@@ -45,15 +56,20 @@ const Post = ({postObj, isOwner}) => {
                     </>
                     ) : (
                     <>
+                    {postObj.attachmentURL && <img src={postObj.attachmentURL} />}
+                    
                     <h4>{postObj.text}</h4>
-                    {postObj.attachmentURL && (
-                        <img src={postObj.attachmentURL} width="50px" height="50px"/>
-                    )}
+                    
+                    
                     {isOwner && (
-                        <>
-                        <button onClick={onDeleteClick}>Delete</button>
-                        <button onClick={toggleEditing}>Edit Post</button>
-                        </>
+                        <div class="post__actions">
+                            <span onClick={onDeleteClick}>
+                            <FontAwesomeIcon icon={faTrash} />
+                            </span>
+                            <span onClick={toggleEditing}>
+                            <FontAwesomeIcon icon={faPencilAlt} />
+                            </span>
+                        </div>
                     )}
                     </>
                     )
