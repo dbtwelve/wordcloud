@@ -93,6 +93,14 @@ form {
   width: 100%;
 }
 
+.sourceForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+  }
+
 .factoryInput__container {
   display: flex;
   justify-content: space-between;
@@ -114,6 +122,40 @@ form {
   font-size: 12px;
 }
 
+.URL_TXT_Input__input {
+    flex-grow: 1;
+    height: 40px;
+    padding: 0px 20px;
+    color: white;
+    border: 1px solid #04aaff;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+.URL_Input__input {
+    flex-grow: 1;
+    height: 40px;
+    padding: 0px 20px;
+    color: black;
+    background-color: white;
+    border: 1px solid #04aaff;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+.TXT_Input__input {
+flex-grow: 1;
+height: 100px;
+padding: 0px 20px;
+color: black;
+border: 1px solid #04aaff;
+border-radius: 10px;
+font-weight: 500;
+font-size: 12px;
+}
+
 .factoryInput__arrow {
   position: absolute;
   right: 0;
@@ -127,6 +169,33 @@ form {
   box-sizing: border-box;
 }
 
+.URL_Input__arrow {
+    position: absolute;
+    right: 0;
+    background-color: #04aaff;
+    height: 40px;
+    width: 40px;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    box-sizing: border-box;
+  }
+
+.TXT_Input__arrow {
+position: absolute;
+right: 0;
+background-color: #04aaff;
+height: 100px;
+width: 40px;
+padding: 10px 0px;
+text-align: center;
+border-radius: 10px;
+color: white;
+box-sizing: border-box;
+
+}
+
 .factoryInput__label {
   color: #04aaff;
   cursor: pointer;
@@ -137,6 +206,27 @@ form {
   font-size: 12px;
 }
 
+.Input__label {
+    color: #04aaff;
+    cursor: pointer;
+    margin: 10px 20px 10px 20px;
+  }
+  
+.Input__label span {
+margin-right: 10px;
+font-size: 12px;
+}
+
+.factoryUpdate__label {
+    color: #04aaff;
+    cursor: pointer;
+    text-align: center;
+    
+  }
+.factoryUpdate__label span {
+    margin-right: 10px;
+    font-size: 12px;    
+  }
 .factoryForm__attachment {
   display: flex;
   flex-direction: column;
@@ -188,8 +278,7 @@ form {
 .post img {
   right: -10px;
   top: 20px;
-  position: absolute;
-  border-radius: 50%;
+  border-radius: 10%;
   width: 100px;
   height: 100px;
   margin-top: 10px;

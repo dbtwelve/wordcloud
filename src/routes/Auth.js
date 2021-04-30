@@ -26,6 +26,7 @@ const Auth = () => {
 
     };
     return (
+        <>
         <div className="authContainer">
         <FontAwesomeIcon
             icon={faTwitter}
@@ -43,6 +44,7 @@ const Auth = () => {
                 </button>
             </div>
         </div>
+        </>
     )
 }
 ;
