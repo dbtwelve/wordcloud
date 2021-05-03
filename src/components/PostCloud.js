@@ -46,7 +46,8 @@ const PostCloud = ({userObj, setAttachment}) => {
         else{
             uid = userObj.creatorId
         }
-        fetch('http://127.0.0.1:8000/wordcloud/', {
+        //fetch('http://127.0.0.1:8000/wordcloud/', {
+        fetch('http://3.37.27.136:8000/wordcloud/', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
