@@ -231,6 +231,7 @@ font-size: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .factoryForm__attachment img {
@@ -269,6 +270,7 @@ font-size: 12px;
   display: flex;
   flex-direction: column;
   color: rgba(0, 0, 0, 0.8);
+  align-items: center;
 }
 
 .post h4 {

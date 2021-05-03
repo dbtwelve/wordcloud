@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 import {v4 as uuidv4} from "uuid"   //create random id
+import PostCloud from "./PostCloud";
 
 const PostUpdate = ({postObj,toggleEditing}) => {
     const [newPost, setNewPost] = useState(postObj.text);
@@ -46,6 +47,7 @@ const PostUpdate = ({postObj,toggleEditing}) => {
     const onClearAttachment = () => {
         setNewAttachment("");
     }
+    
     return (
         <>
         <form onSubmit={onSubmit} className="container postEdit">
@@ -67,6 +69,8 @@ const PostUpdate = ({postObj,toggleEditing}) => {
                     }}
                     alt=""
                     />
+                    <PostCloud userObj={postObj} setAttachment={setNewAttachment}/>
+                    <div style={{visibility: "collapse"}}>
                     <label htmlFor="update-file" className="factoryUpdate__label">
                         <span>Change photos</span>
                         <FontAwesomeIcon icon={faPlus} />
@@ -80,6 +84,7 @@ const PostUpdate = ({postObj,toggleEditing}) => {
                         opacity: 0,
                         }}
                     />
+                    </div>
                     <div className="factoryForm__clear" onClick={onClearAttachment}>
                     <span>Remove</span>
                     <FontAwesomeIcon icon={faTimes} />
