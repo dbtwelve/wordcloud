@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/wordcloud/static/css/main.f8cc3250.chunk.css",
-    "main.js": "/wordcloud/static/js/main.b116f0c6.chunk.js",
-    "main.js.map": "/wordcloud/static/js/main.b116f0c6.chunk.js.map",
+    "main.js": "/wordcloud/static/js/main.8e30bfe2.chunk.js",
+    "main.js.map": "/wordcloud/static/js/main.8e30bfe2.chunk.js.map",
     "runtime-main.js": "/wordcloud/static/js/runtime-main.7283e6c5.js",
     "runtime-main.js.map": "/wordcloud/static/js/runtime-main.7283e6c5.js.map",
     "static/js/2.80971369.chunk.js": "/wordcloud/static/js/2.80971369.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.7283e6c5.js",
     "static/js/2.80971369.chunk.js",
     "static/css/main.f8cc3250.chunk.css",
-    "static/js/main.b116f0c6.chunk.js"
+    "static/js/main.8e30bfe2.chunk.js"
   ]
 }
