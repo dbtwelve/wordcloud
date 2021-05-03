@@ -7,6 +7,9 @@ import PostUpdate from "./PostUpdate";
 const Post = ({postObj, isOwner}) => {
     const [editing, setEditing] = useState(false);
     
+    const onImageClick = () => {
+        window.open(postObj.attachmentURL)
+    };
     const onDeleteClick = async () => {
         const isDelete = window.confirm("Are you sure you want to delete this post?");
         if(isDelete){
@@ -32,7 +35,7 @@ const Post = ({postObj, isOwner}) => {
                     </>
                     ) : (
                     <>
-                    {postObj.attachmentURL && <img src={postObj.attachmentURL} alt={postObj.attachmentURL}/>}
+                    {postObj.attachmentURL && <img onClick={onImageClick} src={postObj.attachmentURL} alt={postObj.attachmentURL}/>}
                     
                     <h4>{postObj.text}</h4>
                     

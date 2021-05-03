@@ -10,8 +10,58 @@ const PostFactory = ({userObj}) => {
     const [isURL, setIsURL] = useState(false);
     const [isTXT, setIsTXT] = useState(false);
     const [attachment, setAttachment] = useState("");
+
+    const getBase64FromUrl = async (url) => {
+        const data = await fetch(url);
+        const blob = await data.blob();
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(blob); 
+            reader.onloadend = function() {
+            const base64data = reader.result;   
+            resolve(base64data);
+            }
+        });
+    }
+
     const onTextCloudSubmit = async (event) => {
-        console.log(textURL,isURL,isTXT);
+        
+        if (textURL === "") {
+            setIsURL(false)
+            setIsTXT(false)
+            return;
+        }      
+        event.preventDefault();
+        
+        let s_type = ""
+        if (isURL === true){
+            s_type = "U"
+        }
+        else{
+            s_type = "T"
+        }
+        fetch('http://127.0.0.1:8000/wordcloud/', {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                sourceType: s_type, 
+                source: textURL,
+                uid: userObj.uid,
+                imageURL: ""
+            })
+            
+        })
+        .then(res => res.json())
+        .then((Response) => {
+            console.log('response:',Response)
+            //setAttachment(Response.imageURL)
+            getBase64FromUrl(Response.imageURL).then(data => setAttachment(data))
+        })
+        
+        
+
     };
     const onSubmit = async (event) => {
         console.log(upload,userObj.uid,attachment)
@@ -35,6 +85,8 @@ const PostFactory = ({userObj}) => {
         await dbService.collection("posts").add(post);
         setUpload("");
         setAttachment("");
+        setIsTXT(false);
+        setIsURL(false);
     };
     const onChange = (event) => {
         const {target: {value}} = event;
