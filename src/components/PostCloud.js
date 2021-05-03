@@ -61,7 +61,7 @@ const PostCloud = ({userObj, setAttachment}) => {
         })
         .then(res => res.json())
         .then((Response) => {
-            console.log('response:',Response)
+            //console.log('response:',Response)
             //setAttachment(Response.imageURL)
             getBase64FromUrl(Response.imageURL).then(data => setAttachment(data))
         })

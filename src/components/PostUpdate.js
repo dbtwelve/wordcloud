@@ -42,7 +42,7 @@ const PostUpdate = ({postObj,toggleEditing}) => {
             setNewAttachment(result);
         };
         reader.readAsDataURL(theFile);
-        console.log(storageService.ref().child(postObj.attachmentURL))
+        //console.log(storageService.ref().child(postObj.attachmentURL))
     };
     const onClearAttachment = () => {
         setNewAttachment("");

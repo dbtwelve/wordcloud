@@ -31,7 +31,7 @@ const Home = ({userObj}) => {
                 id:doc.id,
                 ...doc.data(),
             }));
-            console.log(postArray)
+            //console.log(postArray)
         
             setPostList(postArray);
         });
