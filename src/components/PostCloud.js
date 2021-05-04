@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudDownloadAlt, faFont, faSearch } from "@fortawesome/free-solid-svg-icons";
-
+import https from 'https';
 
 
 const PostCloud = ({userObj, setAttachment}) => {
@@ -53,6 +53,8 @@ const PostCloud = ({userObj, setAttachment}) => {
                 'Content-Type': 'application/json'
                 
             },
+            rejectUnauthorized: false,
+            httpsAgent: new https.Agent({rejectUnauthorized: false}),
             body: JSON.stringify({
                 sourceType: s_type, 
                 source: textURL,
