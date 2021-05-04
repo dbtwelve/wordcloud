@@ -51,6 +51,7 @@ const PostCloud = ({userObj, setAttachment}) => {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
+                
             },
             body: JSON.stringify({
                 sourceType: s_type, 
@@ -93,6 +94,7 @@ const PostCloud = ({userObj, setAttachment}) => {
 
     return (
         <>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> 
         <span>
             <label className="Input__label" onClick={toggleURL}>
                 <span>URL</span>
