@@ -371,8 +371,8 @@ font-size: 12px;
 
 .footer {
     position: fixed;
-    margin-top: auto;
     bottom: 0;
     width: 100%;
-    height: 70px;
+    height: 20px;
+    background-color: black;
 }
