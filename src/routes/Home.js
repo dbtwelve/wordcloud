@@ -26,7 +26,7 @@ const Home = ({userObj}) => {
         //getPostList();
         //실시간으로 화면에 나타내기 위해 snapshot 사용
         const getData = 
-        dbService.collection("posts").onSnapshot(snapshot => {
+        dbService.collection("posts").orderBy("createdAt","desc").onSnapshot(snapshot => {
             const postArray = snapshot.docs.map(doc => ({
                 id:doc.id,
                 ...doc.data(),
