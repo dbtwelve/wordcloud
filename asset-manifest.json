@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/wordcloud/static/css/main.7b45e37d.chunk.css",
+    "main.css": "/wordcloud/static/css/main.8d0a23fc.chunk.css",
     "main.js": "/wordcloud/static/js/main.1177257d.chunk.js",
     "main.js.map": "/wordcloud/static/js/main.1177257d.chunk.js.map",
     "runtime-main.js": "/wordcloud/static/js/runtime-main.5777daf2.js",
@@ -8,13 +8,13 @@
     "static/js/2.51cacf49.chunk.js": "/wordcloud/static/js/2.51cacf49.chunk.js",
     "static/js/2.51cacf49.chunk.js.map": "/wordcloud/static/js/2.51cacf49.chunk.js.map",
     "index.html": "/wordcloud/index.html",
-    "static/css/main.7b45e37d.chunk.css.map": "/wordcloud/static/css/main.7b45e37d.chunk.css.map",
+    "static/css/main.8d0a23fc.chunk.css.map": "/wordcloud/static/css/main.8d0a23fc.chunk.css.map",
     "static/js/2.51cacf49.chunk.js.LICENSE.txt": "/wordcloud/static/js/2.51cacf49.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5777daf2.js",
     "static/js/2.51cacf49.chunk.js",
-    "static/css/main.7b45e37d.chunk.css",
+    "static/css/main.8d0a23fc.chunk.css",
     "static/js/main.1177257d.chunk.js"
   ]
 }
